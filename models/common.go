@@ -1,7 +1,7 @@
 package models
 
 type QueryResponse struct {
-  Status string `json:"status"`
+	Status string `json:"status"`
 	Data   struct {
 		ResultType string `json:"resultType"`
 		Result     []struct {
@@ -11,11 +11,11 @@ type QueryResponse struct {
 			} `json:"metric,omitempty"`
 			Value []interface{} `json:"value,omitempty"`
 		} `json:"result,omitempty"`
-  } `json:"data"`
+	} `json:"data"`
 }
 
 type QueryResult struct {
-  Query string
-  Data interface{}
-  Error error
+	Query string
+	Data  interface{}
+	Error error
 }
