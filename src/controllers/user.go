@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/AlissonBarbosa/shylockgo-scraper/models"
+	"github.com/AlissonBarbosa/shylockgo-scraper/src/models"
 	"github.com/gophercloud/gophercloud"
 	"github.com/gophercloud/gophercloud/openstack"
 	"github.com/gophercloud/gophercloud/openstack/identity/v3/projects"
@@ -53,7 +53,7 @@ func SaveUserProjects(provider *gophercloud.ProviderClient) error {
 	userList, err := getAllUsers(provider)
 	if err != nil {
 		slog.Error("Error getting user list from openstack", err)
-		//return err
+		return err
 	}
 	client, err := openstack.NewIdentityV3(provider, gophercloud.EndpointOpts{})
 	if err != nil {

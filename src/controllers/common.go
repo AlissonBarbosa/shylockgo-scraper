@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/AlissonBarbosa/shylockgo-scraper/models"
+	"github.com/AlissonBarbosa/shylockgo-scraper/src/models"
 )
 
 func QueryGetPrometheus(query string) models.QueryResult {

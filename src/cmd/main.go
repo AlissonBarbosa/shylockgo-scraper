@@ -5,9 +5,9 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/AlissonBarbosa/shylockgo-scraper/common"
-	"github.com/AlissonBarbosa/shylockgo-scraper/controllers"
-	"github.com/AlissonBarbosa/shylockgo-scraper/models"
+	"github.com/AlissonBarbosa/shylockgo-scraper/src/common"
+	"github.com/AlissonBarbosa/shylockgo-scraper/src/controllers"
+	"github.com/AlissonBarbosa/shylockgo-scraper/src/models"
 )
 
 func main() {
@@ -26,6 +26,7 @@ func main() {
 	projectsFlag := flag.Bool("projects", false, "Execute projects functions")
 	flavorsFlag := flag.Bool("flavors", false, "Execute flavors functions")
 	usersFlag := flag.Bool("users", false, "Execute users functions")
+	allFlag := flag.Bool("all", false, "Execute all functions")
 	flag.Parse()
 
 	if *serversFlag {
@@ -50,6 +51,24 @@ func main() {
 	}
 
 	if *usersFlag {
+		slog.Info("Executing users functions")
+		controllers.SaveUserDesc(provider)
+		controllers.SaveUserProjects(provider)
+	}
+
+  if *allFlag {
+		slog.Info("Executing servers functions")
+		controllers.SaveServersDesc(provider)
+		controllers.SaveServersSpec(provider)
+		controllers.SaveServersUsage(provider)
+		controllers.SaveServersOwnership(provider)
+		slog.Info("Executing projects functions")
+		controllers.SaveProjectsDesc(provider)
+		controllers.SaveProjectQuota(provider)
+		controllers.SaveProjectUsage(provider)
+		slog.Info("Executing flavors functions")
+		controllers.SaveFlavorDesc(provider)
+		controllers.SaveFlavorSpec(provider)
 		slog.Info("Executing users functions")
 		controllers.SaveUserDesc(provider)
 		controllers.SaveUserProjects(provider)
