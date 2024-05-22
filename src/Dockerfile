@@ -21,4 +21,4 @@ WORKDIR /shylockgo
 
 COPY --from=build /shylockgo ./
 
-CMD [ "./shylockgo" ]
+CMD [ "./shylockgo --all" ]

@@ -11,7 +11,7 @@ import (
 
 	"net/url"
 
-	"github.com/AlissonBarbosa/shylockgo-scraper/models"
+	"github.com/AlissonBarbosa/shylockgo-scraper/src/models"
 	"github.com/gophercloud/gophercloud"
 	"github.com/gophercloud/gophercloud/openstack"
 	"github.com/gophercloud/gophercloud/openstack/compute/v2/servers"
