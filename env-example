@@ -3,6 +3,7 @@ export POSTGRES_PORT=5432
 export POSTGRES_PASSWORD=changeme
 export POSTGRES_USER=postgres
 export POSTGRES_DB=shylock
+export LOGFILE="./shylock.log"
 export OS_DOMAIN_NAME="Default"
 export DOMAIN_ID="changeme"
 export OS_AUTH_URL=https://cloud.example:5000/v3

@@ -11,7 +11,14 @@ import (
 )
 
 func main() {
-	l := slog.New(slog.NewJSONHandler(os.Stdout, nil))
+  filelog, err := os.OpenFile(os.Getenv("LOGFILE"), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+  if err != nil {
+    slog.Error("Error creating log file")
+    return
+  }
+  defer filelog.Close()
+
+	l := slog.New(slog.NewJSONHandler(filelog, nil))
 	slog.SetDefault(l)
 
 	models.ConnectDatabase()
