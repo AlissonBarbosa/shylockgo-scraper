@@ -24,9 +24,9 @@ format:
 
 .PHONY: build
 build:
-	go build -v -o $(MODULE_NAME).bin ./$(MODULE_NAME)
-	chmod +x $(MODULE_NAME).bin
-	echo $(MODULE_NAME).bin
+	go build -v -o $(MODULE_NAME) $(CMD_DIR)
+	chmod +x $(MODULE_NAME)
+	echo $(MODULE_NAME)
 
 .PHONY: run
 run:
